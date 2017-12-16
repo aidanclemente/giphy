@@ -1,0 +1,31 @@
+body {
+	background: #d3c6f2;
+}
+
+#cartoonForm {
+	float: right;
+	width: 33%;
+}
+
+#newCartoon, #cartoonInput, #addCartoon {
+	display: block;
+}
+
+#newCartoon {
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+#cartoonInput {
+	margin: 8px 0;
+	line-height: 25px;
+	font-size: 18px;
+}
+
+#addCartoon {
+	font-size: 20px;
+	color: #fff;
+	background-color: #642fe0;
+	border: 1px solid #270870;
+	border-radius: 5px;
+}
