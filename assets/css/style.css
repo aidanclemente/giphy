@@ -2,6 +2,21 @@ body {
 	background: #d3c6f2;
 }
 
+.button {
+	margin: 2px;
+	font-size: 16px;
+    line-height: 25px;
+    border-radius: 5px;
+    color: #fff;
+	background-color: #642fe0;
+	border: 1px solid #270870;
+}
+
+#buttons {
+	margin: 10px;
+    margin-bottom: 15px;
+}
+
 #cartoonForm {
 	float: right;
 	width: 33%;
@@ -13,7 +28,7 @@ body {
 
 #newCartoon {
 	font-weight: bolder;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 #cartoonInput {
@@ -22,10 +37,4 @@ body {
 	font-size: 18px;
 }
 
-#addCartoon {
-	font-size: 20px;
-	color: #fff;
-	background-color: #642fe0;
-	border: 1px solid #270870;
-	border-radius: 5px;
-}
+
