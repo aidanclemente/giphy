@@ -62,6 +62,9 @@ img {
 	font-weight: bolder;
 	font-size: 20px;
 	padding-left: 5px;
+	color: #ff3333;
+	letter-spacing: 1.5px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #cartoonInput {
@@ -89,24 +92,22 @@ img {
   color: #ffafaf;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 870px) {
 	#cartoons {
 		float: none;
 		width: 100%;
-	}
+	}	
 
 	#cartoonForm {
 		float: none;
 		width: 100%;
 	}
-
-	#addCartoon {
+		#addCartoon {
 		float: none;
 		width: 50%;
 	}
 
 	#newCartoon {
-		letter-spacing: 2px;
 		text-align: center;
 	}
 
@@ -114,5 +115,40 @@ img {
 		text-align: center;
 		margin-right: auto;
 		margin-left: auto;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+/*	#cartoons {
+		float: none;
+		width: 100%;
+	}*/
+
+/*	#cartoonForm {
+		float: none;
+		width: 100%;
+	}*/
+
+/*	#addCartoon {
+		float: none;
+		width: 50%;
+	}
+
+	#newCartoon {
+		text-align: center;
+	}
+
+	#cartoonInput, #addCartoon{
+		text-align: center;
+		margin-right: auto;
+		margin-left: auto;
+	}*/
+}
+
+@media (hover: none) {
+    .choice:hover {
+	background-color: #642fe0;
+	font-size: 16px;
 	}
 }

@@ -72,8 +72,8 @@ $("div").on("click", "button", function() {
 			var newDiv = $("<div>");
 			var p = $("<p>").text("Rating: " + results[i].rating);
 			var image = $("<img>");
-			var stillURL = results[i].images.original_still.url;
-			var animateURL = results[i].images.original.url;
+			var stillURL = results[i].images.fixed_height_still.url;
+			var animateURL = results[i].images.fixed_height.url;
 
 		// Giving initial data-state still 
 			image.attr("data-state", "still");
@@ -93,7 +93,7 @@ $("div").on("click", "button", function() {
 			newDiv.append(p);
 			newDiv.append(image);
 			$("#cartoons").append(newDiv);
-		}
+		} console.log(response);
 	});
 
 });
@@ -115,4 +115,15 @@ $("div").on("click", "img", function() {
 		$(this).attr("src", srcStill);
 		$(this).attr("data-state", "still");
 	}
+});
+
+// Source: https://github.com/jquery/jquery-mobile/issues/1079
+// Keyboard for input area on mobile devices
+$(document).on('pageinit', '[data-role="page"]', function () {
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){
+$('input, textarea').focusin(function() {
+if ($(this).arrt('type').toLowerCase() != 'number');
+$(this).focus();
+});
+}
 });
