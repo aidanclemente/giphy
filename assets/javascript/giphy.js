@@ -5,7 +5,7 @@
 // on click for ajax call for buttons 
 	//ajax call 
 		//url for still
-		//url for animated
+		//url for animate
 		//rating
 	//default load still url 
 	// If statement for on click animate/still
@@ -33,16 +33,13 @@ function buttonMaker(){
 };
 
 
-$("#addCartoon").on("click", function(){
+$("#addCartoon").on("click", function() {
 
 	var newCartoon = $("#cartoonInput").val().trim();
-
 // Allows enter to submit
     event.preventDefault();
-
 // Adds the submitted cartoon to the array
 	cartoons.push(newCartoon);	
-
 // shows updated buttons
 	buttonMaker();
 })	
@@ -50,15 +47,9 @@ $("#addCartoon").on("click", function(){
 //shows initial array buttons
 buttonMaker();
 
-// on click for ajax call for buttons 
-	//ajax call 
-		//url for still
-		//url for animated
-		//rating
-	//default load still url 
-	// If statement for on click animate/still
-
-$("button").click(function() {
+//Event Binder for now and future buttons
+//div is the parent elemente and button is the decendent 
+$("div").on("click", "button", function() {
 	var cartoon = $(this).val().trim();
 	var apiKey = "&api_key=dc6zaTOxFJmzC&limit=10";
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoon + apiKey;
@@ -70,24 +61,53 @@ $("button").click(function() {
 
 		$("#cartoons").empty();
 
-//To make it easier for calling the image information
+	//To make it easier for calling the image information
 		var results = response.data;
 
 		for (var i = 0; i < results.length; i++) {
 			
 			var newDiv = $("<div>");
-
 			var rating = $("<p>").text("Rating: " + results[i].rating);
-
 			var image = $("<img>");
+			var stillURL = results[i].images.original_still.url;
+			var animateURL = results[i].images.original.url;
 
-			//setting the img src to still
-			image.attr("src", results[i].images.original_still.url);
+		// Giving initial data-state still 
+			image.attr("data-state", "still");
 
+		// Giving URLs for pausing/starting animation
+			image.attr("data-still", stillURL);
+			image.attr("data-animate", animateURL);
+
+		// Setting the img initial src to still
+			image.attr("src", stillURL);
+		// Giving images class
+			image.addClass("giphy");
+
+		// Gave class for css puposes
 			newDiv.addClass("giphy");
+
 			newDiv.append(rating);
 			newDiv.append(image);
 			$("#cartoons").append(newDiv);
 		}
 	})
-})
+});
+
+//Event Binder for animation stop/start
+$("div").on("click", "img", function() {
+// Stores the data-state of the giphy clicked in variable
+	var state = $(this).attr("data-state");
+
+// URLs for giphy clicked
+	var srcStill = $(this).attr("data-still");
+	var srcAnimate = $(this).attr("data-animate");
+
+	if (state === "still") {
+		$(this).attr("src", srcAnimate);
+		$(this).attr("data-state", "animate");
+	} else {
+		$(this).attr("src", srcStill);
+		$(this).attr("data-state", "still");
+	}
+});
