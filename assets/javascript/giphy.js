@@ -1,4 +1,4 @@
-var cartoons = ["The Simpsons", "Family Guy", "My Little Pony", "She Ra", "The Smirfs", "Sofia the First", "Story Bots", "Peppa Pig", "Popeye", "Tiny Toon Adventures", "Pinky and the Brain ", "Gargoyles", "Darkwing Duck", "Animaniacs", "Dexter's Laboratory", "Daria", "Hey Arnold!", "Johnny Bravo", "Rocko's Modern Life", "Ed, Edd n Eddy", "Captain Planet and the Planeteers", "The Ren and Stimpy Show"];
+var cartoons = ["The Simpsons", "Family Guy", "My Little Pony", "She Ra", "The Smurfs", "Sofia the First", "Story Bots", "Peppa Pig", "Popeye", "Tiny Toon Adventures", "Pinky and the Brain ", "Gargoyles", "Darkwing Duck", "Animaniacs", "Dexter's Laboratory", "Daria", "Hey Arnold!", "Johnny Bravo", "Rocko's Modern Life", "Ed, Edd n Eddy", "Captain Planet and the Planeteers", "The Ren and Stimpy Show"];
 
 function buttonMaker(){
 
@@ -27,15 +27,20 @@ $("#addCartoon").on("click", function() {
     	lowerCaseCartoons.push(cartoons[i].toLowerCase());
     }
 
-// Checks to see if the button already exists
-    if (lowerCaseCartoons.indexOf(newCartoon.toLowerCase()) == -1) {
+// Makes sure there's a value and Checks to see if the button already exists
+    if (newCartoon == "") {
+		alert("Please enter a Cartoon");
+	} else if (lowerCaseCartoons.indexOf(newCartoon.toLowerCase()) == -1) {
 	// Adds the submitted cartoon to the array
 		cartoons.push(newCartoon);	
 	// shows updated buttons
 		buttonMaker();
+	// Resets the value 
+		$("form").trigger("reset");
 	} else {
 		alert("Please enter a new cartoon!");
 	}
+
 });	
 
 //shows initial array buttons
@@ -95,7 +100,7 @@ $("div").on("click", "button", function() {
 
 //Event Binder for animation stop/start
 $("div").on("click", "img", function() {
-	
+
 // Stores the data-state of the giphy clicked in variable
 	var state = $(this).attr("data-state");
 
