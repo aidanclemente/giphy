@@ -27,32 +27,43 @@ function buttonMaker(){
 		button.attr("value", cartoons[i]);
 		button.text(cartoons[i])
 
-
 		$("#buttons").append(button);
 	}
 };
 
 
 $("#addCartoon").on("click", function() {
-
+	var lowerCaseCartoons = [];
 	var newCartoon = $("#cartoonInput").val().trim();
 // Allows enter to submit
     event.preventDefault();
-// Adds the submitted cartoon to the array
-	cartoons.push(newCartoon);	
-// shows updated buttons
-	buttonMaker();
-})	
+
+    for (var i = 0; i < cartoons.length; i++) {	
+    	lowerCaseCartoons.push(cartoons[i].toLowerCase());
+    }
+
+// Checks to see if the button already exists
+    if (lowerCaseCartoons.indexOf(newCartoon.toLowerCase()) == -1) {
+	// Adds the submitted cartoon to the array
+		cartoons.push(newCartoon);	
+	// shows updated buttons
+		buttonMaker();
+	} else {
+		alert("Please enter a new cartoon!");
+	}
+});	
 
 //shows initial array buttons
 buttonMaker();
 
 //Event Binder for now and future buttons
-//div is the parent elemente and button is the decendent 
+//div is the parent element and button is the decendent 
 $("div").on("click", "button", function() {
 	var cartoon = $(this).val().trim();
 	var apiKey = "&api_key=dc6zaTOxFJmzC&limit=10";
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoon + apiKey;
+// Limits the giphys ratings to pg and under
+	var limitRating = "&rating=pg";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoon + apiKey + limitRating;
 
 	$.ajax({
 		url: queryURL,
@@ -67,7 +78,7 @@ $("div").on("click", "button", function() {
 		for (var i = 0; i < results.length; i++) {
 			
 			var newDiv = $("<div>");
-			var rating = $("<p>").text("Rating: " + results[i].rating);
+			var p = $("<p>").text("Rating: " + results[i].rating);
 			var image = $("<img>");
 			var stillURL = results[i].images.original_still.url;
 			var animateURL = results[i].images.original.url;
@@ -87,11 +98,12 @@ $("div").on("click", "button", function() {
 		// Gave class for css puposes
 			newDiv.addClass("giphy");
 
-			newDiv.append(rating);
+			newDiv.append(p);
 			newDiv.append(image);
 			$("#cartoons").append(newDiv);
 		}
-	})
+	});
+
 });
 
 //Event Binder for animation stop/start
