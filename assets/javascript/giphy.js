@@ -1,19 +1,3 @@
-// array of cartoons
-
-// on window load function to loop through cartoons array and create buttons dynamically
-
-// on click for ajax call for buttons 
-	//ajax call 
-		//url for still
-		//url for animate
-		//rating
-	//default load still url 
-	// If statement for on click animate/still
-
-//click on new button, clears the prvious giphys and loads new
-
-// make sure they can't repeat buttons (when comparing, change to all lower)
-
 var cartoons = ["The Simpsons", "Family Guy", "My Little Pony", "She Ra", "The Smirfs", "Sofia the First", "Story Bots", "Peppa Pig", "Popeye", "Tiny Toon Adventures", "Pinky and the Brain ", "Gargoyles", "Darkwing Duck", "Animaniacs", "Dexter's Laboratory", "Daria", "Hey Arnold!", "Johnny Bravo", "Rocko's Modern Life", "Ed, Edd n Eddy", "Captain Planet and the Planeteers", "The Ren and Stimpy Show"];
 
 function buttonMaker(){
@@ -33,6 +17,7 @@ function buttonMaker(){
 
 
 $("#addCartoon").on("click", function() {
+
 	var lowerCaseCartoons = [];
 	var newCartoon = $("#cartoonInput").val().trim();
 // Allows enter to submit
@@ -59,6 +44,7 @@ buttonMaker();
 //Event Binder for now and future buttons
 //div is the parent element and button is the decendent 
 $("div").on("click", "button", function() {
+
 	var cartoon = $(this).val().trim();
 	var apiKey = "&api_key=dc6zaTOxFJmzC&limit=10";
 // Limits the giphys ratings to pg and under
@@ -74,7 +60,8 @@ $("div").on("click", "button", function() {
 
 	//To make it easier for calling the image information
 		var results = response.data;
-
+	
+	//Taking returned information and putting the giphys and rating on DOM
 		for (var i = 0; i < results.length; i++) {
 			
 			var newDiv = $("<div>");
@@ -95,7 +82,7 @@ $("div").on("click", "button", function() {
 		// Giving images class
 			image.addClass("giphy");
 
-		// Gave class for css puposes
+		// Gave class for css purposes
 			newDiv.addClass("giphy");
 
 			newDiv.append(p);
@@ -108,6 +95,7 @@ $("div").on("click", "button", function() {
 
 //Event Binder for animation stop/start
 $("div").on("click", "img", function() {
+	
 // Stores the data-state of the giphy clicked in variable
 	var state = $(this).attr("data-state");
 
