@@ -35,7 +35,7 @@ $("#addCartoon").on("click", function() {
 		cartoons.push(newCartoon);	
 	// shows updated buttons
 		buttonMaker();
-	// Resets the value 
+	// Resets the value to show placeholder
 		$("form").trigger("reset");
 	} else {
 		alert("Please enter a new cartoon!");
@@ -52,7 +52,7 @@ $("div").on("click", "button", function() {
 
 	var cartoon = $(this).val().trim();
 	var apiKey = "&api_key=dc6zaTOxFJmzC&limit=10";
-// Limits the giphys ratings to pg and under
+// Limits the gifs ratings to pg and under
 	var limitRating = "&rating=pg";
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoon + apiKey + limitRating;
 
@@ -63,10 +63,15 @@ $("div").on("click", "button", function() {
 
 		$("#cartoons").empty();
 
-	//To make it easier for calling the image information
+	//Makes calling the image information cleaner
 		var results = response.data;
+
+	//Alerts if no gifs are found
+		if (results.length == 0) {
+			alert("No Gifs found for " + cartoon);
+		}
 	
-	//Taking returned information and putting the giphys and rating on DOM
+	//Taking returned information and putting gifs and rating on DOM
 		for (var i = 0; i < results.length; i++) {
 			
 			var newDiv = $("<div>");
@@ -120,10 +125,10 @@ $("div").on("click", "img", function() {
 // Source: https://github.com/jquery/jquery-mobile/issues/1079
 // Keyboard for input area on mobile devices
 $(document).on('pageinit', '[data-role="page"]', function () {
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){
-$('input, textarea').focusin(function() {
-if ($(this).arrt('type').toLowerCase() != 'number');
-$(this).focus();
-});
-}
+	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){
+		$('input, textarea').focusin(function() {
+		if ($(this).arrt('type').toLowerCase() != 'number');
+		$(this).focus();
+		});
+	}
 });
