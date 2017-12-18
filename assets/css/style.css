@@ -89,3 +89,30 @@ img {
   color: #ffafaf;
 }
 
+@media screen and (max-width: 500px) {
+	#cartoons {
+		float: none;
+		width: 100%;
+	}
+
+	#cartoonForm {
+		float: none;
+		width: 100%;
+	}
+
+	#addCartoon {
+		float: none;
+		width: 50%;
+	}
+
+	#newCartoon {
+		letter-spacing: 2px;
+		text-align: center;
+	}
+
+	#cartoonInput, #addCartoon{
+		text-align: center;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
