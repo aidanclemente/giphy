@@ -119,35 +119,8 @@ img {
 
 }
 
-@media screen and (max-width: 500px) {
-/*	#cartoons {
-		float: none;
-		width: 100%;
-	}*/
-
-/*	#cartoonForm {
-		float: none;
-		width: 100%;
-	}*/
-
-/*	#addCartoon {
-		float: none;
-		width: 50%;
-	}
-
-	#newCartoon {
-		text-align: center;
-	}
-
-	#cartoonInput, #addCartoon{
-		text-align: center;
-		margin-right: auto;
-		margin-left: auto;
-	}*/
-}
-
 @media (hover: none) {
-    .choice:hover {
+    .button:hover {
 	background-color: #642fe0;
 	font-size: 16px;
 	}
