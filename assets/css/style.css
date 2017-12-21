@@ -16,6 +16,7 @@ header {
 	color: #fff;
 	border-bottom: 3px #ff0066 solid;
 	font-size: 14px;
+	width: 100%;
 }
 
 /*  div containing buttons  */
@@ -141,6 +142,12 @@ footer {
 	border-top: 3px #ff0066 solid;
 	font-size: 14px;
 }
+
+    .cf:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
 @media screen and (max-width: 870px) {
 	#buttonArticle {
