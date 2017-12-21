@@ -11,9 +11,17 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+	<header>
+		<div id="header">Cartoon Giphy Search</div>
+	</header>
+
 	<div id="buttons">
 		<!-- dynamically created buttons with class=button will go here -->
 	</div>
+	
+	<article id=buttonArticle>
+		<button class="button" id="clear">Clear Gifs</button>
+	</article>
 
 	<form id="cartoonForm">
 		<label for="cartoonInput" id="newCartoon">Add a Cartoon!</label>
@@ -26,6 +34,12 @@
 		<!-- returned cartoons will go here -->
 	</div>
 
+	<div id="footerHolder">
+		<footer>
+			&copy;Copyright 2017 Aidan Clemente
+		</footer>
+	</div>
+		
 	<script src="assets/javascript/giphy.js" type="text/javascript"></script>
 </body>
 </html>

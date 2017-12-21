@@ -1,5 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	background: #d3c6f2;
+}
+
+header {
+	background-color: #3F41DB;
+	text-align: center;
+	padding: 8px;
+	height: 35px;
+	color: #fff;
+	border-bottom: 3px #ff0066 solid;
+	font-size: 14px;
 }
 
 /*  div containing buttons  */
@@ -10,6 +26,7 @@ body {
 
 .button {
 	-webkit-appearance: none;
+	padding: 0 5px;
 	margin: 2px;
 	font-size: 16px;
     line-height: 25px;
@@ -24,15 +41,25 @@ body {
 	font-size: 18px;
 }
 
+button:focus {
+  outline: none;
+}
+
+#clear {
+	background-color: #ff0066;
+	margin: 10px;
+	width: 150px;
+}
+
 /* div containing giphys */
 #cartoons {
 	float: left;
 	width: 66%;
-	margin-left: 7px;
+	margin-bottom: 45px;
 }
 
 p {
-    margin: 5px 0;
+    margin: 5px;
 }
 
 img {
@@ -63,7 +90,7 @@ img {
 	font-weight: bolder;
 	font-size: 20px;
 	padding-left: 5px;
-	color: #ff3333;
+	color: #ff0066;
 	letter-spacing: 1.5px;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -94,7 +121,36 @@ img {
   color: #ffafaf;
 }
 
+
+/*Footer*/
+#footerHolder {
+	margin-left: 0;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	clear: both;
+}
+
+footer {
+	background: #3F41DB;
+	height: 35px;	
+	margin: auto;
+	color: #fff;
+	text-align: center;
+	padding: 8px;
+	border-top: 3px #ff0066 solid;
+	font-size: 14px;
+}
+
 @media screen and (max-width: 870px) {
+	#buttonArticle {
+	text-align: center;
+	}
+
+	#clear {
+		width: 50%;
+	}
+
 	#cartoons {
 		float: none;
 		width: 100%;
@@ -104,7 +160,8 @@ img {
 		float: none;
 		width: 100%;
 	}
-		#addCartoon {
+	
+	#addCartoon {
 		float: none;
 		width: 50%;
 	}
@@ -113,7 +170,7 @@ img {
 		text-align: center;
 	}
 
-	#cartoonInput, #addCartoon{
+	#cartoonInput, #addCartoon {
 		text-align: center;
 		margin-right: auto;
 		margin-left: auto;

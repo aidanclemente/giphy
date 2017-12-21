@@ -123,7 +123,7 @@ $("div").on("click", "img", function() {
 });
 
 // Source: https://github.com/jquery/jquery-mobile/issues/1079
-// Keyboard for input area on mobile devices
+// Keyboard for input area on touch devices
 $(document).on('pageinit', '[data-role="page"]', function () {
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){
 		$('input, textarea').focusin(function() {
@@ -131,4 +131,8 @@ $(document).on('pageinit', '[data-role="page"]', function () {
 		$(this).focus();
 		});
 	}
+});
+
+$("#clear").on("click", function(){
+	$("#cartoons").empty();
 });
