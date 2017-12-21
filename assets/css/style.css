@@ -158,6 +158,10 @@ footer {
 		width: 50%;
 	}
 
+	img {
+		max-width: 90%;
+	}
+
 	#cartoons {
 		float: none;
 		width: 100%;
